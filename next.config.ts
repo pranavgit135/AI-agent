@@ -7,7 +7,13 @@ const nextConfig: NextConfig = {
     "@cline/agents",
     "@cline/llms",
     "@cline/shared",
+    "@prisma/client",
+    "prisma",
   ],
+  outputFileTracingIncludes: {
+    "/*": ["./lib/generated/prisma/**/*"],
+    "/api/**/*": ["./lib/generated/prisma/**/*"],
+  },
 };
 
 export default nextConfig;

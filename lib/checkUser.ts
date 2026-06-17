@@ -11,10 +11,10 @@ const getCurrentPlan = async (): Promise<Plan> => {
 };
 
 export const checkUser = async () => {
-  const user = await currentUser();
-  if (!user) return null;
-
   try {
+    const user = await currentUser();
+    if (!user) return null;
+
     const currentPlan = await getCurrentPlan();
 
     const existing = await db.user.findUnique({

@@ -1,11 +1,15 @@
-import {ClerkProvider} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import { DM_Sans,Lora } from "next/font/google";
+import { DM_Sans, Lora } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import { Toaster } from "@/components/ui/sonner";
+import { Suspense } from "react";
+
+// Auth + DB in Header require a request context — never statically prerender.
+export const dynamic = "force-dynamic";
 
 const lora = Lora({subsets:['latin'],variable:'--font-sans',weight:["400","500"],style:["normal","italic"]});
 
@@ -43,7 +47,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
           >
-          <Header/>
+          <Suspense fallback={<header className="h-16 border-b border-white/6" />}>
+            <Header />
+          </Suspense>
           <main> {children}</main>
           <Toaster richColors/>
           </ThemeProvider>
