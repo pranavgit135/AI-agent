@@ -29,9 +29,6 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  icons:{
-    icon:"/short-logo.png"
-  }
 }>) {
   return (
     <html

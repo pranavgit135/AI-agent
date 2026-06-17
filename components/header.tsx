@@ -16,7 +16,7 @@ const Header = async () => {
     <header className='w-full fixed top-0 left-0 z-50 h-16 border-b border-white/6 bg-whitr/7 backdrop-blur-md'>
       <nav className='mx-auto  flex h-full max-w-7xl items-center justify-between px-4 sm:px-6'>
         <Link href="/">
-        <Image src={"/maya-logo.png"} alt="forge logo" width={100} height={100}
+        <Image src={"/AI-logo.png"} alt="maya logo" width={100} height={100}
         className='h-22 w-auto rounded-md mt-2'/>
         </Link>
 
